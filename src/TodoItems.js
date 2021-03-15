@@ -6,7 +6,7 @@ class TodoItems extends Component {
         this.createTasks = this.createTasks.bind(this);
     }
     delete(key) {
-        this.props.delete(key);
+        this.props.deleteItem(key);
     }
     createTasks(item) {
 

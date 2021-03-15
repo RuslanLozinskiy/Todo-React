@@ -19,8 +19,10 @@ class TodoList extends Component {
                 text: this._input.value,
                 key: Date.now()
             });
+            
             this.setState({
-            item: itemArray
+                item: itemArray
+                
             });
             this._input.value = '';
 
@@ -52,7 +54,7 @@ class TodoList extends Component {
                 </div>
                 <TodoItems
                     entries={this.state.item}
-                    delete={this.deleteItem}
+                    deleteItem={this.deleteItem}
                 />
             </div>
         );
