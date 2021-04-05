@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 class TodoItems extends Component {
     constructor(props) {
@@ -9,9 +8,9 @@ class TodoItems extends Component {
         this.props.deleteItem(key);
     }
     createTasks(item) {
-
-        return <li onClick={() => this.delete(item.key)} key={item.key}>{item.text}</li>
+        return <li onClick={() => this.delete(item.key)} key={item.key}>{item.text}</li>;
     }
+    
     render() {
         const todoEntries = this.props.entries;
         const listItems = todoEntries.map(this.createTasks);

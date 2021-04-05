@@ -2,7 +2,6 @@
 import TodoItems from "./TodoItems";
 import "./TodoList.css";
 
-
 class TodoList extends Component {
     constructor(props) {
         super(props);
@@ -19,45 +18,41 @@ class TodoList extends Component {
                 text: this._input.value,
                 key: Date.now()
             });
-            
             this.setState({
                 item: itemArray
-                
             });
             this._input.value = '';
-
         }
-        
         e.preventDefault();
-        
     }
+    
     deleteItem(key) {
         let filteredItems = this.state.item.filter(function (item) {
             return (item.key !== key);
         });
         this.setState({
-            item:  filteredItems
+            item: filteredItems
         });
     }
 
     render() {
         return (
-            <div className="todoListMain">
-                <div className="header">
-                    <form onSubmit={this.addTodo }>
-                        <input
-                            ref={(a) => this._input = a}
-                            placeholder="Please write your to do"
-                        ></input>
-                        <button type="submint">OK</button>
-                    </form>
+                 <div className="todoListMain">
+                    <div className="header">
+                        <form onSubmit={this.addTodo}>
+                            <input
+                                ref={(a) => this._input = a}
+                                placeholder="Please write your to do"
+                            ></input>
+                            <button type="submit">OK</button>
+                        </form>
+                    </div>
+                    <TodoItems
+                        entries={this.state.item}
+                        deleteItem={this.deleteItem}
+                    />
                 </div>
-                <TodoItems
-                    entries={this.state.item}
-                    deleteItem={this.deleteItem}
-                />
-            </div>
-        );
+       );
     
     } 
 }
